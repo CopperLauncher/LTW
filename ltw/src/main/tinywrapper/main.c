@@ -438,6 +438,10 @@ void glGetIntegerv(GLenum pname, GLint* data) {
             // You literally just can't enable robustness or debugging in GLFW
             *data = GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT;
             return;
+		case GL_CONTEXT_PROFILE_MASK:
+			// LTW is always core profile
+			*data = GL_CONTEXT_CORE_PROFILE_BIT;
+			return;
         default:
             es3_functions.glGetIntegerv(pname, data);
     }
